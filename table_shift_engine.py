@@ -48,18 +48,10 @@ class Table_Calc():
         return type_dict
 
     def set_column_types(self, types_dict, by_number=True):
-        column_len = len(self.data[0])
-
         for col in range(column_len):
             if by_number:
-                if type([types_dict[col]]) == str:
-                    self.data[col] = str(self.data[col])
-                elif type([types_dict[col]]) == int:
-                    self.data[col] = int(self.data[col])
-                elif type([types_dict[col]]) == bool:
-                    self.data[col] = bool(self.data[col])
-                elif type([types_dict[col]]) == float:
-                    self.data[col] = float(self.data[col])
+                for row in range(len(self.data)):
+                    self.data[row][col] = types_dict[col](self.data[row][col])
 
     def get_values(self, column=0):
         return [row[column] for row in self.data]
