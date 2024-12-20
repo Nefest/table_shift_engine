@@ -76,23 +76,3 @@ class Table_Calc():
             self.data[i][column] = value
 
 table = Table_Calc()
-table.load_table('text.csv')
-
-table.data
-
-table.set_values([0, 0, 0], column=1)
-table.data
-
-table.save_table('text-mega.csv')
-
-table.print_table()
-
-table_new = table.get_rows_by_number(0, 1, copy_table=True)
-table_new.print_table()
-
-table.get_rows_by_index('5', copy_table=True).print_table()
-
-table.get_column_types()
-
-table.set_column_types({0: str, 1: str, 2: int})
-table.get_column_types()
